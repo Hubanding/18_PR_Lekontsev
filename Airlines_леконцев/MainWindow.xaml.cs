@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Airlines_леконцев.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,22 @@ namespace Airlines_леконцев
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<TicketsClass> ticketsClasses = new List<TicketsClass>();
+        public static MainWindow init;
         public MainWindow()
         {
             InitializeComponent();
+            init = this;
+            OpenPage(new Pages.Main());
+        }
+
+        public void OpenPage(Page page)
+        {
+            frame.Navigate(page);
+        }
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
